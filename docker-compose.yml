@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  load-balancer:
+    build: ./load_balancer
+    container_name: load_balancer
+    ports:
+      - "8080:8080"
+    depends_on:
+      - server
+    networks:
+      - lb_network
+
+  server:
+    build: ./server
+    container_name: server
+    ports:
+      - "8081-8084:8081-8084"
+    networks:
+      - lb_network
+    deploy:
+      mode: replicated
+      replicas: 4
+
+networks:
+  lb_network:
+    driver: bridge
