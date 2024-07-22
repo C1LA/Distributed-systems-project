@@ -1,0 +1,13 @@
+FROM python:3.8-slim
+
+ENV SERVER_ID=1
+
+COPY requirements.txt /requirements.txt
+
+COPY . /
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+EXPOSE 5000
+
+CMD ["python", "server.py"]
