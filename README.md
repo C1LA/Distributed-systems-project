@@ -154,7 +154,6 @@ Bar graph:
 
 ![Bar graph](https://github.com/C1LA/Distributed-systems-project/tree/master/images/test1_graph.png)
 
-<i>Further information on the plotting of the graph can be found in <b>sheets/Analysis.xlsx</b>.</i>
 
 #### <u>Observations</u>
 
