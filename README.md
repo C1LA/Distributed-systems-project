@@ -98,7 +98,7 @@ Docker Network: Ensures seamless communication between containers using Docker's
 Auto-Scaling: The load balancer is responsible for maintaining a specified number of server replicas, spawning new instances as needed.
 Please make sure to update tests as appropriate.
 
-![Image](https://github.com/C1LA/Distributed-systems-project/tree/master/load_balancer/servers.png)
+![Image](https://github.com/C1LA/Distributed-systems-project/tree/master/images/servers.png)
 
 ## Testing and Performance Analysis
 ### Test 1: Request handling on N = 3 server containers
@@ -152,7 +152,7 @@ Number of requests for Server 3: 2893
 ```
 Bar graph:
 
-![Bar graph](https://github.com/C1LA/Distributed-systems-project/tree/master/load_balancer/test1_graph.png)
+![Bar graph](https://github.com/C1LA/Distributed-systems-project/tree/master/images/test1_graph.png)
 
 <i>Further information on the plotting of the graph can be found in <b>sheets/Analysis.xlsx</b>.</i>
 
@@ -288,7 +288,7 @@ Number of requests for Server 6: 1437
 
 Below is a line graph that shows the trend of average requests per server as we increment N.
 
-![Line graph](https://github.com/C1LA/Distributed-systems-project/tree/master/load_balancer/test2_lgraph.png)
+![Line graph](https://github.com/C1LA/Distributed-systems-project/tree/master/images/test2_lgraph.png)
 
 #### <u>Observations</u>
 
