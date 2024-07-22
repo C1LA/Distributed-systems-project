@@ -58,9 +58,17 @@ docker-compose up
 #### Add Instances
 ```json
 POST /add
+server_add.bat   
 {
-  "n": 4,
-  "hostnames": ["S5", "S4", "S10", "S11"]
+  "message": {
+    "N": 3,
+    "replicas": [
+      "2",
+      "1",
+      "1"
+    ]
+  },
+  "status": "successful"
 }
 ```
 #### Remove Instances
@@ -89,6 +97,8 @@ Docker Network: Ensures seamless communication between containers using Docker's
 
 Auto-Scaling: The load balancer is responsible for maintaining a specified number of server replicas, spawning new instances as needed.
 Please make sure to update tests as appropriate.
+
+![Image](https://github.com/C1LA/Distributed-systems-project/tree/master/load_balancer/servers.png)
 
 ## Testing and Performance Analysis
 ### Test 1: Request handling on N = 3 server containers
@@ -280,8 +290,6 @@ Below is a line graph that shows the trend of average requests per server as we 
 
 ![Line graph](https://github.com/C1LA/Distributed-systems-project/tree/master/load_balancer/test2_lgraph.png)
 
-<i>Further information on the plotting of the graph can be found in <b>sheets/Analysis.xlsx</b>.</i>
-
 #### <u>Observations</u>
 
 As the number of server replicas (N) increases, the average load per server decreases. This trend suggests that the load balancer is effectively distributing the load more evenly as the number of servers increases. This is a positive indication of the load balancer's ability to scale and handle increased traffic by distributing it across a larger number of servers.
@@ -416,9 +424,9 @@ Sending request with request_id=3
 
 5. Server failure simulation
 
-Here, a batch file (simulate_failure.bat) is used to simulate the failure of server 1. Upon failure of the server, a new replica, server 4 is added so that we have N = 3 replicas to help distribute the load. The batch file then sends a payload of 1000 request to the 3 replicas and outputs the count of requests per server.
+In this case, server 1 failure is simulated using a batch file called failure.bat. In the event that the server fails, a new replica, server 4, is added, giving us a total of N = 3 replicas to aid in load distribution. The batch file then returns the number of requests for each server after sending a payload of 1000 requests to each of the three replicas.
 
-simulate_failure.bat:
+failure.bat:
 ```
 @echo off
 setlocal enabledelayedexpansion
